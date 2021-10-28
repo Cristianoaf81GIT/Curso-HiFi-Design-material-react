@@ -86,6 +86,7 @@ export function Header(props) {
   const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleChange = (e, newValue) => {
     setValue(newValue);
@@ -101,6 +102,19 @@ export function Header(props) {
     setOpen(false);
   };
 
+  const handleMenuItemClick = (e, i) => {
+    setAnchorEl(null);
+    setOpen(false);
+    setSelectedIndex(i);
+  }
+
+  const menuOptions = [
+    {name: "Services", link: "/services"},
+    {name: "Custom Software Development", link: "/customsoftware"},
+    {name: "Mobile App Development", link: "/mobileapps"},
+    {name: "Website Development", link: "/websites"},
+  ];
+
   useEffect( ()=> {
     if (window.location.pathname === '/' && value !== 0) {
       setValue(0)
@@ -114,7 +128,61 @@ export function Header(props) {
       setValue(4)
     } else if (window.location.pathname === '/estimate' && value !== 5) {
       setValue(5)
-    }   
+    } 
+    
+    switch(window.location.pathname) {
+      case  "/":
+        if (value !== 0) {
+          setValue(0);         
+        }
+        break;
+      case  "/services":
+        if (value !== 1) {
+          setValue(1);
+          setSelectedIndex(0);                   
+        }
+        break;
+      case  "/customsoftware":
+        if (value !== 1) {
+          setValue(1);
+          setSelectedIndex(1);          
+        }
+        break;
+      case "/mobileapps": 
+        if(value !== 1) {
+          setValue(1);
+          setSelectedIndex(2);
+        }
+        break;
+      case "/websites":
+        if(value !== 1) {
+          setValue(1);
+          setSelectedIndex(3);
+        }
+        break;
+      case "/revolution":
+        if(value !== 2) {
+          setValue(2);          
+        }
+        break;
+      case "/about":
+        if(value !== 3) {
+          setValue(3);
+        }
+        break;
+      case "/contact":
+        if(value !== 4) {
+          setValue(4);
+        }
+        break;
+      case "estimate": 
+        if(value !== 5) {
+          setValue(5);
+        }
+        break;
+      default:
+        break;
+    }
   }, [value])
 
   return(
@@ -128,7 +196,6 @@ export function Header(props) {
         <Tabs value={value} className={classes.tabContainer} onChange={handleChange} indicatorColor="primary">
           <Tab className={classes.tab} component={Link} to="/" label="Home"/>
           <Tab 
-            // className={classes.tab}
             classes={{root: {color: "red"}}} 
             component={Link} to="/services" 
             label="services" 
@@ -153,77 +220,28 @@ export function Header(props) {
               <Paper elevation={0} classes={{root: classes.menu}} onMouseLeave={() => handleClose()}>
                 <ClickAwayListener onClickAway={handleClose} >
                   <MenuList autoFocusItem={open} id="simple-menu" classes={{paper: classes.menu}}>
-                    <MenuItem 
-                      onClick={() => {handleClose(); setValue(1)}} 
-                      component={Link}
-                      classes={{root: classes.menuItem}} 
-                      to="/services">
-                        Services
-                    </MenuItem>
-                    <MenuItem 
-                      onClick={() => {handleClose(); setValue(1)}} 
-                      component={Link}
-                      classes={{root: classes.menuItem}}  
-                      to="/customsoftware">
-                        Custom software development
-                    </MenuItem>
-                    <MenuItem 
-                      onClick={() => {handleClose(); setValue(1)}} 
-                      component={Link}
-                      classes={{root: classes.menuItem}}  
-                      to="/mobileapps">
-                        Mobile app development
-                    </MenuItem>
-                    <MenuItem 
-                      onClick={() => {handleClose(); setValue(1)}} 
-                      component={Link} 
-                      classes={{root: classes.menuItem}} 
-                      to="/websites">
-                        Website development
-                    </MenuItem>
+                    {menuOptions.map((option, i) => (
+                      <MenuItem 
+                        key={option}
+                        component={Link} 
+                        to={option.link}
+                        onClick={(event) => {
+                          handleMenuItemClick(event, i);
+                          setValue(1);
+                          handleClose();
+                        }}
+                        selected={i === selectedIndex && value === 1}
+                        classes={{ root: classes.MenuItem }}>
+                        {option.name}
+                      </MenuItem>
+                    ))}
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
             </Grow>
           )}
         </Popper>
-        {/* <Menu 
-          id="simple-menu"
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          classes={{paper: classes.menu}}
-          MenuListProps={{onMouseLeave: handleClose}}
-          elevation={0}>
-            <MenuItem 
-              onClick={() => {handleClose(); setValue(1)}} 
-              component={Link}
-              classes={{root: classes.menuItem}} 
-              to="/services">
-                Services
-            </MenuItem>
-            <MenuItem 
-              onClick={() => {handleClose(); setValue(1)}} 
-              component={Link}
-              classes={{root: classes.menuItem}}  
-              to="/customsoftware">
-                Custom software development
-            </MenuItem>
-            <MenuItem 
-              onClick={() => {handleClose(); setValue(1)}} 
-              component={Link}
-              classes={{root: classes.menuItem}}  
-              to="/mobileapps">
-                Mobile app development
-            </MenuItem>
-            <MenuItem 
-              onClick={() => {handleClose(); setValue(1)}} 
-              component={Link} 
-              classes={{root: classes.menuItem}} 
-              to="/websites">
-                Website development
-            </MenuItem>
-        </Menu> */}
+       
       </ToolBar>    
     </AppBar>
     </ElevationScroll>

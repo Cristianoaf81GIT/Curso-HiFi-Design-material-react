@@ -5,7 +5,10 @@ import { createTheme } from '@material-ui/core/styles';
 const arcBlue = "#0B72B9";
 const arcOrange = "#FFBA60";
 
+const defaultTheme = createTheme();
+
 export default createTheme({
+  ...defaultTheme,
   palette: {
     common: {
       arcBlue: `${arcBlue}`,
@@ -31,5 +34,6 @@ export default createTheme({
     textTransform: 'none',
     color: 'white'
    }    
-  }
+  },
+  breakpoints: {...defaultTheme.breakpoints}  
 }); 

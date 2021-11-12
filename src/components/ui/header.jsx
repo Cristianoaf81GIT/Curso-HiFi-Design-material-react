@@ -2,20 +2,22 @@ import React, { useState, useEffect } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import ToolBar from '@material-ui/core/Toolbar';
-import { makeStyles } from '@material-ui/styles';
+import { createStyles, makeStyles } from '@material-ui/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-// import Menu from '@material-ui/core/Menu';
 import Popper from '@material-ui/core/Popper';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import MenuList from '@material-ui/core/MenuList';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import {useTheme} from '@material-ui/core/styles';
 
 import logo from '../../assets/logo.svg';
 import { MenuItem } from '@material-ui/core';
+
 
 
 function ElevationScroll(props) {
@@ -31,13 +33,25 @@ function ElevationScroll(props) {
   });
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(theme => createStyles({  
   toolbarMargin: {
     ...theme.mixins.toolbar,
-    marginBottom: "3em"
+    marginBottom: "3em",
+    [theme.breakpoints.down('md')]: {
+      marginBottom: "2em",
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: "1.25em",
+    }
   },
   logo: {
-    height: "8em"
+    height: "8em",
+    [theme.breakpoints.down('md')]: {
+      height: "7em",
+    },
+    [theme.breakpoints.down('xs')]: {
+      height: "5.5em"
+    }
   },
   tabContainer: {
     marginLeft: 'auto',
@@ -83,6 +97,8 @@ const useStyles = makeStyles(theme => ({
 
 export function Header(props) {
   const classes = useStyles();
+  const theme = useTheme();  
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
   const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
@@ -185,14 +201,8 @@ export function Header(props) {
     }
   }, [value])
 
-  return(
+  const tabs = (
     <React.Fragment>
-    <ElevationScroll>
-    <AppBar position="fixed">
-      <ToolBar disableGutters>
-        <Button component={Link} to="/" className={classes.logoContainer} disableRipple onClick={() => setValue(0)}>
-        <img src={logo} alt="company logo" className={classes.logo}/>
-        </Button>
         <Tabs value={value} className={classes.tabContainer} onChange={handleChange} indicatorColor="primary">
           <Tab className={classes.tab} component={Link} to="/" label="Home"/>
           <Tab 
@@ -241,6 +251,19 @@ export function Header(props) {
             </Grow>
           )}
         </Popper>
+    </React.Fragment>
+  )
+
+  return(
+    <React.Fragment>
+    <ElevationScroll>
+    <AppBar position="fixed">
+      <ToolBar disableGutters>
+        <Button component={Link} to="/" className={classes.logoContainer} disableRipple onClick={() => setValue(0)}>
+        <img src={logo} alt="company logo" className={classes.logo}/>
+        </Button>
+        
+        {matches ? null : tabs}
        
       </ToolBar>    
     </AppBar>

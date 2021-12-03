@@ -14,7 +14,9 @@ import Paper from '@material-ui/core/Paper';
 import MenuList from '@material-ui/core/MenuList';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import {useTheme} from '@material-ui/core/styles';
-
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import MenuIcon from '@material-ui/icons/Menu';
+import IconButton from '@material-ui/core/IconButton';
 
 import logo from '../../assets/logo.svg';
 import { MenuItem } from '@material-ui/core';
@@ -93,6 +95,16 @@ const useStyles = makeStyles(theme => createStyles({
     "&:hover": {
       opacity: 1
     }
+  },
+  drawerIconContainer: {
+    marginLeft: "auto",
+    "&:hover": {
+      backgroundColor: "transparent"
+    }
+  },
+  drawerIcon: {
+    height: "3.125rem",
+    width: "3.125rem"
   }
 }))
 
@@ -101,27 +113,29 @@ export function Header(props) {
   const theme = useTheme();  
   const matches = useMediaQuery(theme.breakpoints.down('md'));
   const [value, setValue] = useState(0);
+  const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
-  const [open, setOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const handleChange = (e, newValue) => {
+  const handleChange = (_e, newValue) => {
     setValue(newValue);
   }
 
   const handleClick = (e) => {
     setAnchorEl(e.currentTarget);
-    setOpen(true);
+    setOpenMenu(true);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
-    setOpen(false);
+    setOpenMenu(false);
   };
 
   const handleMenuItemClick = (e, i) => {
     setAnchorEl(null);
-    setOpen(false);
+    setOpenMenu(false);
     setSelectedIndex(i);
   }
 
@@ -221,7 +235,7 @@ export function Header(props) {
         <Button variant="contained" color="secondary" className={classes.button}>
           Free Estimate
         </Button>
-        <Popper open={open} anchorEl={anchorEl} role={undefined} transition disablePortal onMouseLeave={() => handleClose()} >
+        <Popper open={openMenu} anchorEl={anchorEl} role={undefined} transition disablePortal onMouseLeave={() => handleClose()} >
           {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}
@@ -230,7 +244,7 @@ export function Header(props) {
             >
               <Paper elevation={0} classes={{root: classes.menu}} onMouseLeave={() => handleClose()}>
                 <ClickAwayListener onClickAway={handleClose} >
-                  <MenuList autoFocusItem={open} id="simple-menu" classes={{paper: classes.menu}}>
+                  <MenuList autoFocusItem={openMenu} id="simple-menu" classes={{paper: classes.menu}}>
                     {menuOptions.map((option, i) => (
                       <MenuItem 
                         key={option}
@@ -255,8 +269,28 @@ export function Header(props) {
     </React.Fragment>
   )
 
-  return(
+  const drawer =  (
     <React.Fragment>
+    <SwipeableDrawer 
+      disableBackdropTransition={!iOS} 
+      disableDiscovery={iOS} 
+      open={openDrawer} 
+      onClose={() => setOpenDrawer(false)} 
+      onOpen={() => setOpenDrawer(true)}>
+      example Drawer
+    </SwipeableDrawer>
+      <IconButton 
+        className={classes.drawerIconContainer} 
+        onClick={() => setOpenDrawer(!openDrawer)} 
+        disableRipple
+      >
+        <MenuIcon className={classes.drawerIcon}/>
+      </IconButton>
+    </React.Fragment>
+  )
+
+  return(
+    <React.Fragment>     
     <ElevationScroll>
     <AppBar position="fixed">
       <ToolBar disableGutters>
@@ -264,12 +298,12 @@ export function Header(props) {
         <img src={logo} alt="company logo" className={classes.logo}/>
         </Button>
         
-        {matches ? null : tabs}
+        {matches ? drawer : tabs}
        
       </ToolBar>    
     </AppBar>
     </ElevationScroll>
-    <div className={classes.toolbarMargin}/>
+    <div className={classes.toolbarMargin}/>    
     </React.Fragment>
   );
 }

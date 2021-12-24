@@ -17,6 +17,9 @@ import {useTheme} from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 import logo from '../../assets/logo.svg';
 import { MenuItem } from '@material-ui/core';
@@ -277,7 +280,26 @@ export function Header(props) {
       open={openDrawer} 
       onClose={() => setOpenDrawer(false)} 
       onOpen={() => setOpenDrawer(true)}>
-      example Drawer
+      <List disablePadding>
+        <ListItem onClick={() => setOpenDrawer(false)} divider button component={Link} to="/">
+          <ListItemText disableTypography>Home</ListItemText>
+        </ListItem>
+        <ListItem onClick={() => setOpenDrawer(false)} divider button component={Link} to="/services">
+          <ListItemText disableTypography>Services</ListItemText>
+        </ListItem>
+        <ListItem onClick={() => setOpenDrawer(false)} divider button component={Link} to="/revolution">
+          <ListItemText disableTypography>The revolution</ListItemText>
+        </ListItem>       
+        <ListItem onClick={() => setOpenDrawer(false)} divider button component={Link} to="/about">
+          <ListItemText disableTypography>About Us</ListItemText>
+        </ListItem>
+        <ListItem onClick={() => setOpenDrawer(false)} divider button component={Link} to="/contact">
+          <ListItemText disableTypography>Contact</ListItemText>
+        </ListItem>
+        <ListItem onClick={() => setOpenDrawer(false)} divider button component={Link} to="/estimate">
+          <ListItemText disableTypography >Free estimate</ListItemText>
+        </ListItem>
+      </List>
     </SwipeableDrawer>
       <IconButton 
         className={classes.drawerIconContainer} 

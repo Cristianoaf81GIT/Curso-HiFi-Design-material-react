@@ -156,82 +156,60 @@ export function Header(props) {
     setSelectedIndex(i);
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const menuOptions = [
-    {name: "Services", link: "/services"},
-    {name: "Custom Software Development", link: "/customsoftware"},
-    {name: "Mobile App Development", link: "/mobileapps"},
-    {name: "Website Development", link: "/websites"},
+    {
+      name: "Services", 
+      link: "/services", 
+      activeIndex: 1, 
+      selectedIndex: 0
+    },
+    {
+      name: "Custom Software Development", 
+      link: "/customsoftware", 
+      activeIndex: 1, 
+      selectedIndex: 1
+    },
+    {
+      name: "Mobile App Development", 
+      link: "/mobileapps", 
+      activeIndex: 1, 
+      selectedIndex: 2
+    },
+    {
+      name: "Website Development", 
+      link: "/websites", 
+      activeIndex: 1, 
+      selectedIndex: 3
+    },
   ];
 
-  useEffect( ()=> {
-    if (window.location.pathname === '/' && value !== 0) {
-      setValue(0)
-    } else if (window.location.pathname === '/services' && value !== 1) {
-      setValue(1)
-    } else if (window.location.pathname === '/revolution' && value !== 2) {
-      setValue(2)
-    } else if (window.location.pathname === '/about' && value !== 3) {
-      setValue(3)
-    } else if (window.location.pathname === '/contact' && value !== 4) {
-      setValue(4)
-    } else if (window.location.pathname === '/estimate' && value !== 5) {
-      setValue(5)
-    } 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const routes = [
+    {name: "Home", link: "/", activeIndex: 0},
+    {name: "Services", link: "/services", activeIndex: 1 },
+    {name: "The Revolution", link: "/revolution", activeIndex: 2},
+    {name: "About us", link: "/about", activeIndex: 3},
+    {name: "Contact Us", link: "/contact", activeIndex: 4},
+  ];
+
+  useEffect( ()=> {    
+    [...menuOptions, ...routes].forEach(route => {
+      switch(window.location.pathname) {
+        case `${route.link}`:
+          if (value !== route.activeIndex) {
+            setValue(route.activeIndex);
+            if (route.selectedIndex && route.selectedIndex !== selectedIndex) {
+              setSelectedIndex(route.selectedIndex);
+            }
+          }
+        break;
+        default:
+          break;
+      }
+    });
     
-    switch(window.location.pathname) {
-      case  "/":
-        if (value !== 0) {
-          setValue(0);         
-        }
-        break;
-      case  "/services":
-        if (value !== 1) {
-          setValue(1);
-          setSelectedIndex(0);                   
-        }
-        break;
-      case  "/customsoftware":
-        if (value !== 1) {
-          setValue(1);
-          setSelectedIndex(1);          
-        }
-        break;
-      case "/mobileapps": 
-        if(value !== 1) {
-          setValue(1);
-          setSelectedIndex(2);
-        }
-        break;
-      case "/websites":
-        if(value !== 1) {
-          setValue(1);
-          setSelectedIndex(3);
-        }
-        break;
-      case "/revolution":
-        if(value !== 2) {
-          setValue(2);          
-        }
-        break;
-      case "/about":
-        if(value !== 3) {
-          setValue(3);
-        }
-        break;
-      case "/contact":
-        if(value !== 4) {
-          setValue(4);
-        }
-        break;
-      case "estimate": 
-        if(value !== 5) {
-          setValue(5);
-        }
-        break;
-      default:
-        break;
-    }
-  }, [value])
+  }, [value, menuOptions, selectedIndex, routes])
 
   const tabs = (
     <React.Fragment>

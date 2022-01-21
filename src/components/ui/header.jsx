@@ -187,7 +187,9 @@ export function Header(props) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const routes = [
     {name: "Home", link: "/", activeIndex: 0},
-    {name: "Services", link: "/services", activeIndex: 1 },
+    {name: "Services", link: "/services", activeIndex: 1, 
+    ariaOwns: anchorEl ? "simple-menu" : undefined,
+     ariaPopup: Boolean(anchorEl), mouseOver: (event) =>{ handleClick(event)}},
     {name: "The Revolution", link: "/revolution", activeIndex: 2},
     {name: "About us", link: "/about", activeIndex: 3},
     {name: "Contact Us", link: "/contact", activeIndex: 4},
@@ -214,18 +216,20 @@ export function Header(props) {
   const tabs = (
     <React.Fragment>
         <Tabs value={value} className={classes.tabContainer} onChange={handleChange} indicatorColor="primary">
-          <Tab className={classes.tab} component={Link} to="/" label="Home"/>
-          <Tab 
-            classes={{root: {color: "red"}}} 
-            component={Link} to="/services" 
-            label="services" 
-            aria-owns={anchorEl ? "simple-menu" : undefined}
-            aria-haspopup={Boolean(anchorEl)}
-            onMouseOver={(event) =>{ handleClick(event);}}                    
-          />
-          <Tab className={classes.tab} component={Link} to="/revolution" label="The Revolution"/>
-          <Tab className={classes.tab} component={Link} to="/about" label="About Us"/>
-          <Tab className={classes.tab} component={Link} to="/contact" label="Contact Us"/>
+
+          {routes.map((route, index) => (
+            <Tab 
+              className={classes.tab} 
+              component={Link} 
+              to={route.link}
+              label={route.name}
+              aria-owns={route.ariaOwns}
+              aria-haspopup={route.ariaPopup}
+              onMouseOver={route.mouseOver}
+              key={`${route}-${index}`}
+            />
+
+          ))}
         </Tabs>
         <Button variant="contained" color="secondary" className={classes.button}>
           Free Estimate
@@ -274,23 +278,49 @@ export function Header(props) {
       onOpen={() => setOpenDrawer(true)}
       classes={{paper: classes.drawer}}>
       <List disablePadding>
-        <ListItem onClick={() => {setOpenDrawer(false); setValue(0)}} selected={value === 0} divider button component={Link} to="/">
-          <ListItemText className={value === 0 ? [classes.drawerItem, classes.drawerItemSelected] :classes.drawerItem } disableTypography >Home</ListItemText>
-        </ListItem>
-        <ListItem onClick={() => {setOpenDrawer(false); setValue(1)}}  selected={value === 1} divider button component={Link} to="/services">
-          <ListItemText className={value === 1 ? [classes.drawerItem, classes.drawerItemSelected] :classes.drawerItem } disableTypography>Services</ListItemText>
-        </ListItem>
-        <ListItem onClick={() =>  {setOpenDrawer(false); setValue(2)}} selected={value === 2} divider button component={Link} to="/revolution">
-          <ListItemText  className={value === 2 ? [classes.drawerItem, classes.drawerItemSelected] :classes.drawerItem } disableTypography>The revolution</ListItemText>
-        </ListItem>       
-        <ListItem onClick={() =>  {setOpenDrawer(false); setValue(3)}} selected={value === 3} divider button component={Link} to="/about">
-          <ListItemText className={value === 3 ? [classes.drawerItem, classes.drawerItemSelected] :classes.drawerItem } disableTypography>About Us</ListItemText>
-        </ListItem>
-        <ListItem onClick={() =>  {setOpenDrawer(false); setValue(4)}} selected={value === 4} divider button component={Link} to="/contact">
-          <ListItemText className={value === 4 ? [classes.drawerItem, classes.drawerItemSelected] :classes.drawerItem } disableTypography>Contact</ListItemText>
-        </ListItem>
-        <ListItem onClick={() =>  {setOpenDrawer(false); setValue(5)}} selected={value === 5} className={classes.drawerItemEstimate} divider button component={Link} to="/estimate">
-          <ListItemText className={value === 5 ? [classes.drawerItem, classes.drawerItemSelected] :classes.drawerItem } disableTypography >Free estimate</ListItemText>
+        {routes.map((route, index) => (
+          <ListItem 
+            divider
+            button
+            component={Link}
+            to={route.link}
+            selected={value === route.activeIndex}
+            onClick={() => {
+              setOpenDrawer(false);
+              setValue(route.activeIndex) 
+            }}
+            key={`${route}-${index}`}
+          >
+            <ListItemText 
+              className={value === route.activeIndex ? 
+                [classes.drawerItem, classes.drawerItemSelected] :
+                classes.drawerItem
+              } 
+              disableTypography
+            >
+              {route.name}
+            </ListItemText>
+          </ListItem>
+        ))}  
+        <ListItem 
+          onClick={() =>  {setOpenDrawer(false); setValue(5)}} 
+          selected={value === 5} 
+          className={classes.drawerItemEstimate} 
+          divider 
+          button 
+          component={Link} 
+          to="/estimate"
+        >
+          <ListItemText 
+            className={
+              value === 5 ? 
+              [classes.drawerItem, classes.drawerItemSelected] : 
+              classes.drawerItem 
+            } 
+            disableTypography 
+          >
+            Free estimate
+          </ListItemText>
         </ListItem>
       </List>
     </SwipeableDrawer>

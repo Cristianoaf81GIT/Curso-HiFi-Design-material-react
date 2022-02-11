@@ -302,11 +302,7 @@ export function Header(props) {
             }}
             key={`${route}-${index}`}
           >
-            <ListItemText 
-              // className={value === route.activeIndex ? 
-              //   [classes.drawerItem, classes.drawerItemSelected] :
-              //   classes.drawerItem
-              // } 
+            <ListItemText            
               className={classes.drawerItem} 
               disableTypography
             >
@@ -324,11 +320,6 @@ export function Header(props) {
           to="/estimate"
         >
           <ListItemText 
-            // className={
-            //   value === 5 ? 
-            //   [classes.drawerItem, classes.drawerItemSelected] : 
-            //   classes.drawerItem 
-            // } 
             classes={{root: classes.drawerItem, selected: classes.drawerItemSelected}} 
             disableTypography 
           >

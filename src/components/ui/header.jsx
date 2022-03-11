@@ -138,15 +138,14 @@ export function Header(props) {
   const classes = useStyles();
   const theme = useTheme();  
   const matches = useMediaQuery(theme.breakpoints.down('md'));
-  const [value, setValue] = useState(0);
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  
 
   const handleChange = (_e, newValue) => {
-    setValue(newValue);
+    props.setValue(newValue);
   }
 
   const handleClick = (e) => {
@@ -162,7 +161,7 @@ export function Header(props) {
   const handleMenuItemClick = (e, i) => {
     setAnchorEl(null);
     setOpenMenu(false);
-    setSelectedIndex(i);
+    props.setSelectedIndex(i);
   }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -208,10 +207,10 @@ export function Header(props) {
     [...menuOptions, ...routes].forEach(route => {
       switch(window.location.pathname) {
         case `${route.link}`:
-          if (value !== route.activeIndex) {
-            setValue(route.activeIndex);
-            if (route.selectedIndex && route.selectedIndex !== selectedIndex) {
-              setSelectedIndex(route.selectedIndex);
+          if (props.value !== route.activeIndex) {
+            props.setValue(route.activeIndex);
+            if (route.selectedIndex && route.selectedIndex !== props.selectedIndex) {
+              props.setSelectedIndex(route.selectedIndex);
             }
           }
         break;
@@ -220,11 +219,11 @@ export function Header(props) {
       }
     });
     
-  }, [value, menuOptions, selectedIndex, routes])
+  }, [props.value, menuOptions, props.selectedIndex, routes])
 
   const tabs = (
     <React.Fragment>
-        <Tabs value={value} className={classes.tabContainer} onChange={handleChange} indicatorColor="primary">
+        <Tabs value={props.value} className={classes.tabContainer} onChange={handleChange} indicatorColor="primary">
 
           {routes.map((route, index) => (
             <Tab 
@@ -260,10 +259,10 @@ export function Header(props) {
                         to={option.link}
                         onClick={(event) => {
                           handleMenuItemClick(event, i);
-                          setValue(1);
+                          props.setValue(1);
                           handleClose();
                         }}
-                        selected={i === selectedIndex && value === 1}
+                        selected={i === props.selectedIndex && props.value === 1}
                         classes={{ root: classes.MenuItem }}>
                         {option.name}
                       </MenuItem>
@@ -294,11 +293,11 @@ export function Header(props) {
             button
             component={Link}
             to={route.link}
-            selected={value === route.activeIndex}
+            selected={props.value === route.activeIndex}
             classes={{selected: classes.drawerItemSelected}}
             onClick={() => {
               setOpenDrawer(false);
-              setValue(route.activeIndex) 
+              props.setValue(route.activeIndex) 
             }}
             key={`${route}-${index}`}
           >
@@ -311,8 +310,8 @@ export function Header(props) {
           </ListItem>
         ))}  
         <ListItem 
-          onClick={() =>  {setOpenDrawer(false); setValue(5)}} 
-          selected={value === 5} 
+          onClick={() =>  {setOpenDrawer(false); props.setValue(5)}} 
+          selected={props.value === 5} 
           className={classes.drawerItemEstimate} 
           divider 
           button 
@@ -343,7 +342,7 @@ export function Header(props) {
     <ElevationScroll>
     <AppBar position="fixed" className={classes.appBar}>
       <ToolBar disableGutters>
-        <Button component={Link} to="/" className={classes.logoContainer} disableRipple onClick={() => setValue(0)}>
+        <Button component={Link} to="/" className={classes.logoContainer} disableRipple onClick={() => props.setValue(0)}>
         <img src={logo} alt="company logo" className={classes.logo}/>
         </Button>
         

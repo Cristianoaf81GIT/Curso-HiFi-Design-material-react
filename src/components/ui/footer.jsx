@@ -2,7 +2,8 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import {makeStyles, createStyles} from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import footerAdornment from '../../assets/Footer Adornment.svg'
+import footerAdornment from '../../assets/Footer Adornment.svg';
+import Hidden from '@material-ui/core/Hidden';
 
 
 const useStyles = makeStyles(_theme => createStyles({
@@ -43,6 +44,7 @@ export default function Footer(props) {
 
 
   return <footer className={classes.footer}>
+    <Hidden mdDown>
    <Grid container justifyContent='center' className={classes.mainContainer}>
       
       <Grid item className={classes.gridItem}>
@@ -122,6 +124,7 @@ export default function Footer(props) {
       </Grid>
 
    </Grid>
+   </Hidden>
    <img 
     alt="black decorative slash" 
     src={footerAdornment} 

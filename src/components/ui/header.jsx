@@ -218,7 +218,7 @@ export function Header(props) {
           break;
       }
     });
-    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.value, menuOptions, props.selectedIndex, routes])
 
   const tabs = (

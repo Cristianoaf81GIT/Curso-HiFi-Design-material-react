@@ -14,7 +14,8 @@ const useStyles = makeStyles(_theme => createStyles({
     backgroundColor: _theme.palette.common.arcBlue,
     width: "100%",
     position: "fixed",
-    bottom:0
+    bottom:0,
+    
   },
   adornment: {
     width: "25em",

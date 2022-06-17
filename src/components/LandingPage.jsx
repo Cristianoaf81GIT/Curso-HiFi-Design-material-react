@@ -13,6 +13,7 @@ import customSoftwareIcon from '../assets/Custom Software Icon.svg';
 import mobileAppsIcon from '../assets/mobileIcon.svg';
 import websitesIcon from '../assets/websiteIcon.svg';
 import revolutionBackground from '../assets/repeatingBackground.svg';
+import infoBackground from '../assets/infoBackground.svg';
 
 
 const useStyles = makeStyles((theme) => createStyles({
@@ -118,6 +119,14 @@ const useStyles = makeStyles((theme) => createStyles({
       borderRadius: 0,
       width: "100%"
     }
+  },
+  infoBackground: {
+    backgroundImage: `url(${infoBackground})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: '100%',
+    width: '100%'
   }
 }));
 
@@ -126,6 +135,8 @@ export default function LandingPage() {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
+  const matchesSX = useMediaQuery(theme.breakpoints.down('xm'));
+
   const defaultOptions = {
     loop: true,
       autoplay: false, 
@@ -162,6 +173,7 @@ export default function LandingPage() {
           </Grid>
         </Grid>
       </Grid>
+
       {/***Custom software Block***/}
       <Grid item>
         <Grid 
@@ -260,6 +272,7 @@ export default function LandingPage() {
         </Grid>
       </Grid>
 
+      {/**revolution block**/}
       <Grid item>
         <Grid 
           container 
@@ -290,6 +303,82 @@ export default function LandingPage() {
           </Card>
           <div className={classes.revolutionBackground}/>
         </Grid>
+      </Grid>
+
+      {/**information block**/}
+      <Grid 
+        container 
+        direction="row" 
+        style={{ height: "80em"}}
+        alignItems="center"
+      >
+        <Grid 
+          item 
+          container 
+          style={{ 
+            position: "absolute", 
+            textAlign: matchesSX ? "center" : "inherit" 
+          }} 
+          direction={matchesSM ? "column" : "row"}
+          spacing={matchesSX ? 10 : 0}
+        >
+
+        <Grid 
+          item 
+          sm 
+          style={{ 
+            marginLeft: matchesSX ? 0: matchesSM ? "2em" : "5em" }}
+          >
+            <Grid container direction="column">
+              <Typography variant="h2" style={{color: "white"}}>About Us</Typography>
+              <Typography variant="subtitle2">Lets's get personal.</Typography>
+              <Grid item>
+                <Button 
+                  variant="outlined" 
+                  style={{
+                    color: theme.palette.common.white, 
+                    borderColor: theme.palette.common.white
+                  }}
+                  className={classes.learnButton}
+                >
+                  <span style={{marginRight: 10}}>Learn More</span>
+                  <ButtonArrow width={10} height={10} fill={theme.palette.common.white}/>
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid> 
+
+          <Grid 
+            item 
+            sm 
+            style={{ 
+              marginRight: matchesSX ? 0 : matchesSM ? "2em" : "5em", 
+              textAlign: matchesSX ? "center" : "right" 
+            }}
+          >
+            <Grid container direction="column">
+              <Typography variant="h2" style={{color: "white"}}>Contact Us</Typography>
+              <Typography variant="subtitle2">Say hello!</Typography>
+              <Grid item>
+                <Button 
+                  variant="outlined" 
+                  style={{
+                    color: theme.palette.common.white, 
+                    borderColor: theme.palette.common.white
+                  }}
+                  className={classes.learnButton}
+                >
+                  <span style={{marginRight: 10}}>Learn More</span>
+                  <ButtonArrow width={10} height={10} fill={theme.palette.common.white}/>
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid> 
+
+        </Grid>
+        
+
+          <div className={classes.infoBackground}/>
       </Grid>
 
     </Grid>

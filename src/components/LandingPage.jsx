@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import CallToAction from './ui/CallToAction';
 import ButtonArrow from './ui/ButtonArrow';
 import animationData from '../animations/landinganimation/data';
 import customSoftwareIcon from '../assets/Custom Software Icon.svg';
@@ -376,11 +377,13 @@ export default function LandingPage() {
           </Grid> 
 
         </Grid>
-        
-
           <div className={classes.infoBackground}/>
       </Grid>
 
+      {/**Call-to-Action**/}
+      <Grid item>
+        <CallToAction/>            
+      </Grid>             
     </Grid>
   );
 }

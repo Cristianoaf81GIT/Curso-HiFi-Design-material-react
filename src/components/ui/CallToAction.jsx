@@ -35,11 +35,7 @@ export default function CallToAction() {
           </Typography>
           <Grid container item>
                 <Button 
-                  variant="outlined" 
-                  // style={{
-                  //   color: theme.palette.common.white, 
-                  //   borderColor: theme.palette.common.white
-                  // }}
+                  variant="outlined"                 
                   className={classes.learnButton}
                 >
                   <span style={{marginRight: 5}}>Learn More</span>

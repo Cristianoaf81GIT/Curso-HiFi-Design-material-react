@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import { Link } from 'react-router-dom';
 import CallToAction from './ui/CallToAction';
 import ButtonArrow from './ui/ButtonArrow';
 import animationData from '../animations/landinganimation/data';
@@ -159,10 +160,22 @@ export default function LandingPage() {
             </Typography>
             <Grid container justify="center" className={classes.buttonContainer}>
               <Grid item>
-                <Button className={classes.estimateButton} variant="contained">Free Estimate</Button>
+                <Button 
+                  className={classes.estimateButton} 
+                  variant="contained"
+                  component={Link}
+                  to="/estimate"
+                >
+                  Free Estimate
+                </Button>
               </Grid>
               <Grid item>
-                <Button variant="outlined" className={classes.learnButtonHero}>
+                <Button 
+                  variant="outlined" 
+                  className={classes.learnButtonHero}
+                  component={Link}
+                  to="/revolution"
+                >
                   <span style={{marginRight: 10}}>Learn More</span>
                   <ButtonArrow width={15} height={15} fill={theme.palette.common.arcBlue}/>
                 </Button>
@@ -197,7 +210,12 @@ export default function LandingPage() {
               Complete digital solutions, from investigation to {" "}
               <span className={classes.specialText}>celebration</span>
             </Typography>
-            <Button variant="outlined" className={classes.learnButton}>
+            <Button 
+              variant="outlined" 
+              className={classes.learnButton}
+              component={Link}
+              to="/customsoftware"
+            >
               <span style={{marginRight: 10}}>Learn More</span>
               <ButtonArrow width={10} height={10} fill={theme.palette.arcBlue}/>
             </Button>
@@ -230,7 +248,12 @@ export default function LandingPage() {
               Integrate your web experience or create a standalone
               {matchesSM ? null : <br />}with either mobile platform.
             </Typography>
-            <Button variant="outlined" className={classes.learnButton}>
+            <Button 
+              variant="outlined" 
+              className={classes.learnButton}
+              component={Link}
+              to="/mobileapps"
+            >
               <span style={{marginRight: 10}}>Learn More</span>
               <ButtonArrow width={10} height={10} fill={theme.palette.arcBlue}/>
             </Button>
@@ -262,7 +285,12 @@ export default function LandingPage() {
             <Typography variant='subtitle1'>
              Optimized for Search engines, built for speed. 
             </Typography>
-            <Button variant="outlined" className={classes.learnButton}>
+            <Button 
+              variant="outlined" 
+              className={classes.learnButton}
+              component={Link}
+              to="/websites"   
+            >
               <span style={{marginRight: 10}}>Learn More</span>
               <ButtonArrow width={10} height={10} fill={theme.palette.arcBlue}/>
             </Button>
@@ -294,7 +322,12 @@ export default function LandingPage() {
                       cutting-edge technology is 
                       recipe for a revolution
                   </Typography>
-                  <Button variant="outlined" className={classes.learnButton}>
+                  <Button 
+                    variant="outlined" 
+                    className={classes.learnButton}
+                    component={Link}
+                    to="/revolution"
+                  >
                     <span style={{marginRight: 10}}>Learn More</span>
                     <ButtonArrow width={10} height={10} fill={theme.palette.arcBlue}/>
                   </Button>
@@ -341,6 +374,8 @@ export default function LandingPage() {
                     borderColor: theme.palette.common.white
                   }}
                   className={classes.learnButton}
+                  component={Link}
+                  to="/about"
                 >
                   <span style={{marginRight: 10}}>Learn More</span>
                   <ButtonArrow width={10} height={10} fill={theme.palette.common.white}/>
@@ -368,6 +403,8 @@ export default function LandingPage() {
                     borderColor: theme.palette.common.white
                   }}
                   className={classes.learnButton}
+                  component={Link}
+                  to="/contact"
                 >
                   <span style={{marginRight: 10}}>Learn More</span>
                   <ButtonArrow width={10} height={10} fill={theme.palette.common.white}/>

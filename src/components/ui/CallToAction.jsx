@@ -3,6 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { makeStyles, createStyles, useTheme } from "@material-ui/core/styles";
+import { Link } from 'react-router-dom';
 import ButtonArrow from "./ButtonArrow";
 import background from "../../assets/background.jpg";
 import mobileBackground from "../../assets/mobileBackground.jpg";
@@ -82,16 +83,29 @@ export default function CallToAction() {
                 <Button 
                   variant="outlined"                 
                   className={classes.learnButton}
+                  component={Link}
+                  to="/revolution"
                 >
                   <span style={{marginRight: 5}}>Learn More</span>
-                  <ButtonArrow width={10} height={10} fill={theme.palette.common.arcBlue}/>
+                  <ButtonArrow 
+                    width={10} 
+                    height={10} 
+                    fill={theme.palette.common.arcBlue}
+                  />
                 </Button>
           </Grid>
         </Grid>
       </Grid>
     </Grid>
     <Grid item >
-      <Button variant="contained" className={classes.estimateButton}>Free Estimate</Button>
+      <Button 
+        variant="contained" 
+        className={classes.estimateButton}
+        component={Link}
+        to="/estimate"
+      >
+        Free Estimate
+      </Button>
     </Grid>
     
   </Grid>

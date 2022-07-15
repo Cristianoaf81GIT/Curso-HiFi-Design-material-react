@@ -44,11 +44,14 @@ const useStyles = makeStyles((theme) => createStyles({
     [theme.breakpoints.down("sm")]: {
       marginRight: 0,
       marginLeft: 0,
+    },
+    '&:hover': {
+      backgroundColor: theme.palette.secondary.light
     }
   }
 }));
 
-export default function CallToAction() {
+export default function CallToAction(props) {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
@@ -85,6 +88,7 @@ export default function CallToAction() {
                   className={classes.learnButton}
                   component={Link}
                   to="/revolution"
+                  onClick={() => props.setValue(2)}
                 >
                   <span style={{marginRight: 5}}>Learn More</span>
                   <ButtonArrow 
@@ -103,6 +107,7 @@ export default function CallToAction() {
         className={classes.estimateButton}
         component={Link}
         to="/estimate"
+        onClick={() => props.setValue(5)}
       >
         Free Estimate
       </Button>

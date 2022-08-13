@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => createStyles({
     }
   },
   serviceContainer: {
-    marginTop: "12em",
+    marginTop: "10em",
     [theme.breakpoints.down('sm')]: {
       padding: 25
     }
@@ -58,13 +58,31 @@ export default function Services(props) {
     <Grid container direction="column">
 
       {/**iOS/Android block**/}
-
+      <Grid 
+        item
+         style={{ 
+            marginLeft: matchesSM ? 0 : "5em",
+            marginTop: matchesSM ? "1em": "2em"
+         }}
+      >
+        <Typography 
+          variant="h2" 
+          gutterBottom 
+          align={ matchesSM ? "center": undefined }
+         >
+         Services
+        </Typography>
+      </Grid>
       <Grid item>
       <Grid 
           container 
           direction="row" 
           className={classes.serviceContainer}
           justify={matchesSM ? "center" : "flex-end"}
+          style={{
+            marginTop: matchesSM ? "1em" : "5em",
+            // width: matchesSM ? undefined : "35em"
+          }}
         >
           <Grid item style={{ 
             textAlign: matchesSM ? "center" : undefined
@@ -91,7 +109,12 @@ export default function Services(props) {
             </Button>
           </Grid>
           <Grid item style={{ marginRight: matchesSM ? 0 : "5em" }}>
-            <img className={classes.icon} alt="mobile phone icon" src={mobileAppsIcon}/>
+            <img 
+              className={classes.icon} 
+              alt="mobile phone icon" 
+              src={mobileAppsIcon} 
+              width="250em"
+            />
           </Grid>
         </Grid>
       </Grid>
@@ -144,9 +167,11 @@ export default function Services(props) {
           direction="row" 
           className={classes.serviceContainer}
           justify={matchesSM ? "center" : "flex-end"}
+          style={{marginBottom: "10em"}}
         >
           <Grid item style={{ 
-           textAlign: matchesSM ? "center" : undefined
+           textAlign: matchesSM ? "center" : undefined,
+           // width: matchesSM ? undefined : "15em"  
           }}>
             <Typography variant="h4">
               Website Development
@@ -171,7 +196,7 @@ export default function Services(props) {
           <Grid item style={{ 
             marginRight: matchesSM ? 0 : "5em", 
           }}>
-            <img className={classes.icon} alt="website icon" src={websitesIcon}/>
+            <img className={classes.icon} alt="website icon" src={websitesIcon} width="250em"/>
           </Grid>
         </Grid>
       </Grid>      

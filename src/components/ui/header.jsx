@@ -275,7 +275,7 @@ export function Header(props) {
                           handleClose();
                         }}
                         selected={i === props.selectedIndex && props.value === 1}
-                        classes={{ root: classes.MenuItem }}>
+                        classes={{ root: classes.MenuItem }} style={{color: 'white'}}>
                         {option.name}
                       </MenuItem>
                     ))}

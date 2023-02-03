@@ -1,27 +1,27 @@
-import img0 from "./img_0.png";
-import img1 from "./img_1.png";
+import img0 from './img_0.png';
+import img1 from './img_1.png';
 
 export default {
-  v: "5.5.9",
+  v: '5.5.9',
   fr: 29.9700012207031,
   ip: 0,
   op: 180.00000733155,
   w: 636,
   h: 646,
-  nm: "Digitail Documents and Data Animation",
+  nm: 'Digitail Documents and Data Animation',
   ddd: 0,
   assets: [
-    { id: "image_0", w: 372, h: 492, u: "", p: img0, e: 0 },
-    { id: "image_1", w: 604, h: 317, u: "", p: img1, e: 0 },
+    { id: 'image_0', w: 372, h: 492, u: '', p: img0, e: 0 },
+    { id: 'image_1', w: 604, h: 317, u: '', p: img1, e: 0 },
     {
-      id: "comp_0",
+      id: 'comp_0',
       layers: [
         {
           ddd: 0,
           ind: 1,
           ty: 2,
-          nm: "Papers",
-          refId: "image_0",
+          nm: 'Papers',
+          refId: 'image_0',
           sr: 1,
           ks: {
             o: { a: 0, k: 100, ix: 11 },
@@ -64,8 +64,8 @@ export default {
           ddd: 0,
           ind: 2,
           ty: 2,
-          nm: "Layer 1",
-          refId: "image_1",
+          nm: 'Layer 1',
+          refId: 'image_1',
           sr: 1,
           ks: {
             o: { a: 0, k: 100, ix: 11 },
@@ -88,8 +88,8 @@ export default {
       ddd: 0,
       ind: 1,
       ty: 0,
-      nm: "Digital Documents and Data",
-      refId: "comp_0",
+      nm: 'Digital Documents and Data',
+      refId: 'comp_0',
       sr: 1,
       ks: {
         o: { a: 0, k: 100, ix: 11 },

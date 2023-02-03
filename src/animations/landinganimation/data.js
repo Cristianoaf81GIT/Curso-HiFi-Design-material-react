@@ -1,56 +1,56 @@
-import img_0 from "./img_0.png";
-import img_1 from "./img_1.png";
-import img_2 from "./img_2.png";
-import img_3 from "./img_3.png";
-import img_4 from "./img_4.png";
+import img_0 from './img_0.png';
+import img_1 from './img_1.png';
+import img_2 from './img_2.png';
+import img_3 from './img_3.png';
+import img_4 from './img_4.png';
 
 export default {
-  v: "5.5.5",
+  v: '5.5.5',
   fr: 29.9700012207031,
   ip: 0,
   op: 180.00000733155,
   w: 808,
   h: 595,
-  nm: "Bringing West Coast Technology to the Midwest 2",
+  nm: 'Bringing West Coast Technology to the Midwest 2',
   ddd: 0,
   assets: [
     {
-      id: "image_0",
+      id: 'image_0',
       w: 173,
       h: 172,
-      u: "",
+      u: '',
       p: img_0,
       e: 0,
     },
     {
-      id: "image_1",
+      id: 'image_1',
       w: 204,
       h: 154,
-      u: "",
+      u: '',
       p: img_1,
       e: 0,
     },
     {
-      id: "image_2",
+      id: 'image_2',
       w: 182,
       h: 182,
-      u: "",
+      u: '',
       p: img_2,
       e: 0,
     },
     {
-      id: "image_3",
+      id: 'image_3',
       w: 233,
       h: 89,
-      u: "",
+      u: '',
       p: img_3,
       e: 0,
     },
     {
-      id: "image_4",
+      id: 'image_4',
       w: 1083,
       h: 366,
-      u: "",
+      u: '',
       p: img_4,
       e: 0,
     },
@@ -60,8 +60,8 @@ export default {
       ddd: 0,
       ind: 1,
       ty: 2,
-      nm: "Left Hand",
-      refId: "image_0",
+      nm: 'Left Hand',
+      refId: 'image_0',
       sr: 1,
       ks: {
         o: { a: 0, k: 100, ix: 11 },
@@ -80,8 +80,8 @@ export default {
       ddd: 0,
       ind: 2,
       ty: 2,
-      nm: "Right Hand",
-      refId: "image_1",
+      nm: 'Right Hand',
+      refId: 'image_1',
       sr: 1,
       ks: {
         o: { a: 0, k: 100, ix: 11 },
@@ -100,8 +100,8 @@ export default {
       ddd: 0,
       ind: 3,
       ty: 2,
-      nm: "CPU",
-      refId: "image_2",
+      nm: 'CPU',
+      refId: 'image_2',
       sr: 1,
       ks: {
         o: { a: 0, k: 100, ix: 11 },
@@ -150,8 +150,8 @@ export default {
       ddd: 0,
       ind: 4,
       ty: 2,
-      nm: "Right Fingers",
-      refId: "image_3",
+      nm: 'Right Fingers',
+      refId: 'image_3',
       sr: 1,
       ks: {
         o: { a: 0, k: 100, ix: 11 },
@@ -170,8 +170,8 @@ export default {
       ddd: 0,
       ind: 5,
       ty: 2,
-      nm: "Waves of Grain",
-      refId: "image_4",
+      nm: 'Waves of Grain',
+      refId: 'image_4',
       sr: 1,
       ks: {
         o: { a: 0, k: 100, ix: 11 },

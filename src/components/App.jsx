@@ -1,19 +1,19 @@
-  import React, { useState } from "react";
-  import { Header } from "./ui/header";
-  import Footer from "./ui/footer";
-  import Services from "./Services";
-  import LandingPage from "../components/LandingPage";
-  import CustomSoftware from "./CustomSoftware";
-  import { ThemeProvider } from "@material-ui/styles";
-  import theme from "./ui/theme";
-  import { BrowserRouter, Route, Switch } from "react-router-dom";
-  import MobileApps from "./MobileApps";
+import React, { useState } from 'react';
+import { Header } from './ui/header';
+import Footer from './ui/footer';
+import Services from './Services';
+import LandingPage from '../components/LandingPage';
+import CustomSoftware from './CustomSoftware';
+import { ThemeProvider } from '@material-ui/styles';
+import theme from './ui/theme';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import MobileApps from './MobileApps';
 
-  function App() {
-    const [selectedIndex, setSelectedIndex] = useState(0);
-    const [value, setValue] = useState(0);
+function App() {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [value, setValue] = useState(0);
 
-    return (
+  return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Header
@@ -63,7 +63,7 @@
             exact
             path="/mobileapps"
             render={(props) => (
-              <MobileApps 
+              <MobileApps
                 {...props}
                 setValue={setValue}
                 setSelectedIndex={setSelectedIndex}

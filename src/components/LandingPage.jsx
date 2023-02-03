@@ -1,39 +1,39 @@
-import React from "react";
-import Lottie from "react-lottie";
-import { makeStyles, createStyles, useTheme } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import { Link } from "react-router-dom";
-import CallToAction from "./ui/CallToAction";
-import ButtonArrow from "./ui/ButtonArrow";
-import animationData from "../animations/landinganimation/data";
-import customSoftwareIcon from "../assets/Custom Software Icon.svg";
-import mobileAppsIcon from "../assets/mobileIcon.svg";
-import websitesIcon from "../assets/websiteIcon.svg";
-import revolutionBackground from "../assets/repeatingBackground.svg";
-import infoBackground from "../assets/infoBackground.svg";
+import React from 'react';
+import Lottie from 'react-lottie';
+import { makeStyles, createStyles, useTheme } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import { Link } from 'react-router-dom';
+import CallToAction from './ui/CallToAction';
+import ButtonArrow from './ui/ButtonArrow';
+import animationData from '../animations/landinganimation/data';
+import customSoftwareIcon from '../assets/Custom Software Icon.svg';
+import mobileAppsIcon from '../assets/mobileIcon.svg';
+import websitesIcon from '../assets/websiteIcon.svg';
+import revolutionBackground from '../assets/repeatingBackground.svg';
+import infoBackground from '../assets/infoBackground.svg';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
     h2: {
-      fontFamily: "Raleway",
+      fontFamily: 'Raleway',
       fontWeight: 700,
-      fontSize: "2.5rem",
-      lineHeight: "1.5",
+      fontSize: '2.5rem',
+      lineHeight: '1.5',
       color: theme.palette.common.arcBlue,
     },
     animation: {
-      maxWidth: "50em",
-      minWidth: "21em",
-      marginTop: "2em",
-      marginLeft: "10%",
-      marginBottom: "2em",
-      [theme.breakpoints.down("sm")]: {
-        maxWidth: "30em",
+      maxWidth: '50em',
+      minWidth: '21em',
+      marginTop: '2em',
+      marginLeft: '10%',
+      marginBottom: '2em',
+      [theme.breakpoints.down('sm')]: {
+        maxWidth: '30em',
       },
     },
     estimateButton: {
@@ -43,92 +43,92 @@ const useStyles = makeStyles((theme) =>
       height: 45,
       width: 145,
       marginRight: 40,
-      "&:hover": {
+      '&:hover': {
         backgroundColor: theme.palette.secondary.light,
       },
     },
     buttonContainer: {
-      marginTop: "1em",
+      marginTop: '1em',
     },
     learnButtonHero: {
       ...theme.typography.learnButton,
-      fontSize: "0.9rem",
+      fontSize: '0.9rem',
       height: 45,
       width: 145,
     },
     learnButton: {
       ...theme.typography.learnButton,
-      fontSize: "0.7rem",
+      fontSize: '0.7rem',
       height: 35,
       padding: 5,
-      [theme.breakpoints.down("sm")]: {
-        marginBottom: "2em",
+      [theme.breakpoints.down('sm')]: {
+        marginBottom: '2em',
       },
     },
     mainContainer: {
-      marginTop: "5em",
-      [theme.breakpoints.down("md")]: {
-        marginTop: "3em",
+      marginTop: '5em',
+      [theme.breakpoints.down('md')]: {
+        marginTop: '3em',
       },
-      [theme.breakpoints.down("xs")]: {
-        marginTop: "2em",
+      [theme.breakpoints.down('xs')]: {
+        marginTop: '2em',
       },
     },
     heroTextContainer: {
-      minWidth: "21em",
-      marginLeft: "1em",
-      [theme.breakpoints.down("xs")]: {
+      minWidth: '21em',
+      marginLeft: '1em',
+      [theme.breakpoints.down('xs')]: {
         marginLeft: 0,
       },
     },
     specialText: {
-      fontFamily: "Pacifico",
+      fontFamily: 'Pacifico',
       color: theme.palette.common.arcOrange,
     },
     subtitle: {
-      marginBottom: "1em",
+      marginBottom: '1em',
     },
     icon: {
-      marginLeft: "2em",
-      [theme.breakpoints.down("xs")]: {
+      marginLeft: '2em',
+      [theme.breakpoints.down('xs')]: {
         marginLeft: 0,
       },
     },
     serviceContainer: {
-      marginTop: "12em",
-      [theme.breakpoints.down("sm")]: {
+      marginTop: '12em',
+      [theme.breakpoints.down('sm')]: {
         padding: 25,
       },
     },
     revolutionBackground: {
       backgroundImage: `url(${revolutionBackground})`,
-      backgroundPosition: "center",
-      backgroundSize: "cover",
-      backgroundRepeat: "no-repeat",
-      height: "100%",
-      width: "100%",
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      height: '100%',
+      width: '100%',
     },
     revolutionCard: {
-      position: "absolute",
+      position: 'absolute',
       boxShadow: theme.shadows[10],
       borderRadius: 15,
-      padding: "10em",
-      [theme.breakpoints.down("sm")]: {
-        paddingTop: "8em",
-        paddingBottom: "8em",
+      padding: '10em',
+      [theme.breakpoints.down('sm')]: {
+        paddingTop: '8em',
+        paddingBottom: '8em',
         paddingLeft: 0,
         paddingRight: 0,
         borderRadius: 0,
-        width: "100%",
+        width: '100%',
       },
     },
     infoBackground: {
       backgroundImage: `url(${infoBackground})`,
-      backgroundPosition: "center",
-      backgroundSize: "cover",
-      backgroundRepeat: "no-repeat",
-      height: "100%",
-      width: "100%",
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      height: '100%',
+      width: '100%',
     },
   })
 );
@@ -136,15 +136,15 @@ const useStyles = makeStyles((theme) =>
 export default function LandingPage(props) {
   const classes = useStyles();
   const theme = useTheme();
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-  const matchesSX = useMediaQuery(theme.breakpoints.down("xm"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
+  const matchesSX = useMediaQuery(theme.breakpoints.down('xm'));
 
   const defaultOptions = {
     loop: true,
     autoplay: false,
     animationData: animationData,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
+      preserveAspectRatio: 'xMidYMid slice',
     },
   };
 
@@ -199,7 +199,7 @@ export default function LandingPage(props) {
             </Grid>
           </Grid>
           <Grid sm item className={classes.animation}>
-            <Lottie options={defaultOptions} height={"auto"} width={"100%"} />
+            <Lottie options={defaultOptions} height={'auto'} width={'100%'} />
           </Grid>
         </Grid>
       </Grid>
@@ -210,13 +210,13 @@ export default function LandingPage(props) {
           container
           direction="row"
           className={classes.serviceContainer}
-          justify={matchesSM ? "center" : undefined}
+          justify={matchesSM ? 'center' : undefined}
         >
           <Grid
             item
             style={{
-              marginLeft: matchesSM ? 0 : "5em",
-              textAlign: matchesSM ? "center" : undefined,
+              marginLeft: matchesSM ? 0 : '5em',
+              textAlign: matchesSM ? 'center' : undefined,
             }}
           >
             <Typography variant="h4">Custom Software Development</Typography>
@@ -224,7 +224,7 @@ export default function LandingPage(props) {
               Save Energy. Save Time. Save Money.
             </Typography>
             <Typography variant="subtitle1">
-              Complete digital solutions, from investigation to{" "}
+              Complete digital solutions, from investigation to{' '}
               <span className={classes.specialText}>celebration</span>
             </Typography>
             <Button
@@ -262,12 +262,12 @@ export default function LandingPage(props) {
           container
           direction="row"
           className={classes.serviceContainer}
-          justify={matchesSM ? "center" : "flex-end"}
+          justify={matchesSM ? 'center' : 'flex-end'}
         >
           <Grid
             item
             style={{
-              textAlign: matchesSM ? "center" : undefined,
+              textAlign: matchesSM ? 'center' : undefined,
             }}
           >
             <Typography variant="h4">iOS/Android App Development.</Typography>
@@ -296,7 +296,7 @@ export default function LandingPage(props) {
               />
             </Button>
           </Grid>
-          <Grid item style={{ marginRight: matchesSM ? 0 : "5em" }}>
+          <Grid item style={{ marginRight: matchesSM ? 0 : '5em' }}>
             <img
               className={classes.icon}
               alt="mobile phone icon"
@@ -312,13 +312,13 @@ export default function LandingPage(props) {
           container
           direction="row"
           className={classes.serviceContainer}
-          justify={matchesSM ? "center" : undefined}
+          justify={matchesSM ? 'center' : undefined}
         >
           <Grid
             item
             style={{
-              marginLeft: matchesSM ? 0 : "5em",
-              textAlign: matchesSM ? "center" : undefined,
+              marginLeft: matchesSM ? 0 : '5em',
+              textAlign: matchesSM ? 'center' : undefined,
             }}
           >
             <Typography variant="h4">Website Development</Typography>
@@ -362,14 +362,14 @@ export default function LandingPage(props) {
           container
           alignItems="center"
           justify="center"
-          style={{ height: "100em", marginTop: "12em" }}
+          style={{ height: '100em', marginTop: '12em' }}
         >
           <Card className={classes.revolutionCard}>
             <CardContent>
               <Grid
                 container
                 direction="column"
-                style={{ textAlign: "center" }}
+                style={{ textAlign: 'center' }}
               >
                 <Grid item>
                   <Typography variant="h3" gutterBottom>
@@ -407,7 +407,7 @@ export default function LandingPage(props) {
       <Grid
         container
         direction="row"
-        style={{ height: "80em" }}
+        style={{ height: '80em' }}
         alignItems="center"
         className={classes.infoBackground}
       >
@@ -416,23 +416,23 @@ export default function LandingPage(props) {
           container
           style={{
             // position: "absolute",
-            textAlign: matchesSX ? "center" : "inherit",
+            textAlign: matchesSX ? 'center' : 'inherit',
           }}
-          direction={matchesSM ? "column" : "row"}
+          direction={matchesSM ? 'column' : 'row'}
         >
           <Grid
             item
             sm
             style={{
-              marginLeft: matchesSX ? 0 : matchesSM ? "2em" : "5em",
+              marginLeft: matchesSX ? 0 : matchesSM ? '2em' : '5em',
             }}
           >
             <Grid
               container
               direction="column"
-              style={{ marginBottom: matchesSX ? "10em" : 0 }}
+              style={{ marginBottom: matchesSX ? '10em' : 0 }}
             >
-              <Typography variant="h2" style={{ color: "white" }}>
+              <Typography variant="h2" style={{ color: 'white' }}>
                 About Us
               </Typography>
               <Typography variant="subtitle2">Lets's get personal.</Typography>
@@ -463,12 +463,12 @@ export default function LandingPage(props) {
             item
             sm
             style={{
-              marginRight: matchesSX ? 0 : matchesSM ? "2em" : "5em",
-              textAlign: matchesSX ? "center" : "right",
+              marginRight: matchesSX ? 0 : matchesSM ? '2em' : '5em',
+              textAlign: matchesSX ? 'center' : 'right',
             }}
           >
             <Grid container direction="column">
-              <Typography variant="h2" style={{ color: "white" }}>
+              <Typography variant="h2" style={{ color: 'white' }}>
                 Contact Us
               </Typography>
               <Typography variant="subtitle2">Say hello!</Typography>

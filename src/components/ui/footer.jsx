@@ -1,60 +1,60 @@
-import React from "react";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles, createStyles } from "@material-ui/core";
-import { Link } from "react-router-dom";
-import footerAdornment from "../../assets/Footer Adornment.svg";
-import facebook from "../../assets/facebook.svg";
-import twitter from "../../assets/twitter.svg";
-import instagram from "../../assets/instagram.svg";
-import Hidden from "@material-ui/core/Hidden";
+import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles, createStyles } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import footerAdornment from '../../assets/Footer Adornment.svg';
+import facebook from '../../assets/facebook.svg';
+import twitter from '../../assets/twitter.svg';
+import instagram from '../../assets/instagram.svg';
+import Hidden from '@material-ui/core/Hidden';
 
 const useStyles = makeStyles((_theme) =>
   createStyles({
     footer: {
       backgroundColor: _theme.palette.common.arcBlue,
-      width: "100%",
+      width: '100%',
       // position: "fixed",
       // bottom:0,
     },
     adornment: {
-      width: "25em",
+      width: '25em',
       zIndex: 1302,
-      position: "relative",
-      verticalAlign: "bottom",
-      [_theme.breakpoints.down("md")]: {
-        width: "21em",
+      position: 'relative',
+      verticalAlign: 'bottom',
+      [_theme.breakpoints.down('md')]: {
+        width: '21em',
       },
-      [_theme.breakpoints.down("xs")]: {
-        width: "15em",
+      [_theme.breakpoints.down('xs')]: {
+        width: '15em',
       },
     },
     mainContainer: {
-      position: "absolute",
+      position: 'absolute',
     },
     link: {
-      color: "white",
-      fontFamily: "Arial",
-      fontSize: "0.75rem",
-      fontWeight: "bold",
-      textDecoration: "none",
+      color: 'white',
+      fontFamily: 'Arial',
+      fontSize: '0.75rem',
+      fontWeight: 'bold',
+      textDecoration: 'none',
     },
     gridItem: {
-      margin: "3em",
+      margin: '3em',
     },
     icon: {
-      height: "4em",
-      width: "4em",
-      [_theme.breakpoints.down("xs")]: {
-        height: "2.5em",
-        width: "2.5em",
+      height: '4em',
+      width: '4em',
+      [_theme.breakpoints.down('xs')]: {
+        height: '2.5em',
+        width: '2.5em',
       },
     },
     socialContainer: {
-      position: "absolute",
-      marginTop: "-6em",
-      right: "1.5rem",
-      [_theme.breakpoints.down("xs")]: {
-        right: "0.6em",
+      position: 'absolute',
+      marginTop: '-6em',
+      right: '1.5rem',
+      [_theme.breakpoints.down('xs')]: {
+        right: '0.6em',
       },
     },
   })
@@ -247,7 +247,7 @@ export default function Footer(props) {
       >
         <Grid
           item
-          component={"a"}
+          component={'a'}
           href="http://wwww.facebook.com"
           rel="noopener noreferrer"
           target="_blank"
@@ -257,7 +257,7 @@ export default function Footer(props) {
 
         <Grid
           item
-          component={"a"}
+          component={'a'}
           href="http://www.twitter.com"
           rel="noopener noreferrer"
           target="_blank"
@@ -267,7 +267,7 @@ export default function Footer(props) {
 
         <Grid
           item
-          component={"a"}
+          component={'a'}
           href="http://www.instagram.com"
           rel="noopener noreferrer"
           target="_blank"

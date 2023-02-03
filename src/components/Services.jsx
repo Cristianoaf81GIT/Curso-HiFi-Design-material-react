@@ -1,49 +1,49 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { createStyles, makeStyles, useTheme } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import ButtonArrow from "./ui/ButtonArrow";
-import customSoftwareIcon from "../assets/Custom Software Icon.svg";
-import mobileAppsIcon from "../assets/mobileIcon.svg";
-import websitesIcon from "../assets/websiteIcon.svg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { createStyles, makeStyles, useTheme } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import ButtonArrow from './ui/ButtonArrow';
+import customSoftwareIcon from '../assets/Custom Software Icon.svg';
+import mobileAppsIcon from '../assets/mobileIcon.svg';
+import websitesIcon from '../assets/websiteIcon.svg';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
     specialText: {
-      fontFamily: "Pacifico",
+      fontFamily: 'Pacifico',
       color: theme.palette.common.arcOrange,
     },
     subtitle: {
-      marginBottom: "1em",
+      marginBottom: '1em',
     },
     icon: {
-      marginLeft: "2em",
-      [theme.breakpoints.down("xs")]: {
+      marginLeft: '2em',
+      [theme.breakpoints.down('xs')]: {
         marginLeft: 0,
       },
     },
     serviceContainer: {
-      marginTop: "10em",
-      [theme.breakpoints.down("sm")]: {
+      marginTop: '10em',
+      [theme.breakpoints.down('sm')]: {
         padding: 25,
       },
     },
     learnButtonHero: {
       ...theme.typography.learnButton,
-      fontSize: "0.9rem",
+      fontSize: '0.9rem',
       height: 45,
       width: 145,
     },
     learnButton: {
       ...theme.typography.learnButton,
-      fontSize: "0.7rem",
+      fontSize: '0.7rem',
       height: 35,
       padding: 5,
-      [theme.breakpoints.down("sm")]: {
-        marginBottom: "2em",
+      [theme.breakpoints.down('sm')]: {
+        marginBottom: '2em',
       },
     },
   })
@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) =>
 export default function Services(props) {
   const classes = useStyles();
   const theme = useTheme();
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Grid container direction="column">
@@ -60,14 +60,14 @@ export default function Services(props) {
       <Grid
         item
         style={{
-          marginLeft: matchesSM ? 0 : "5em",
-          marginTop: matchesSM ? "1em" : "2em",
+          marginLeft: matchesSM ? 0 : '5em',
+          marginTop: matchesSM ? '1em' : '2em',
         }}
       >
         <Typography
           variant="h2"
           gutterBottom
-          align={matchesSM ? "center" : undefined}
+          align={matchesSM ? 'center' : undefined}
         >
           Services
         </Typography>
@@ -77,16 +77,16 @@ export default function Services(props) {
           container
           direction="row"
           className={classes.serviceContainer}
-          justify={matchesSM ? "center" : "flex-end"}
+          justify={matchesSM ? 'center' : 'flex-end'}
           style={{
-            marginTop: matchesSM ? "1em" : "5em",
+            marginTop: matchesSM ? '1em' : '5em',
             // width: matchesSM ? undefined : "35em"
           }}
         >
           <Grid
             item
             style={{
-              textAlign: matchesSM ? "center" : undefined,
+              textAlign: matchesSM ? 'center' : undefined,
             }}
           >
             <Typography variant="h4">iOS/Android App Development.</Typography>
@@ -115,7 +115,7 @@ export default function Services(props) {
               />
             </Button>
           </Grid>
-          <Grid item style={{ marginRight: matchesSM ? 0 : "5em" }}>
+          <Grid item style={{ marginRight: matchesSM ? 0 : '5em' }}>
             <img
               className={classes.icon}
               alt="mobile phone icon"
@@ -131,13 +131,13 @@ export default function Services(props) {
           container
           direction="row"
           className={classes.serviceContainer}
-          justify={matchesSM ? "center" : undefined}
+          justify={matchesSM ? 'center' : undefined}
         >
           <Grid
             item
             style={{
-              marginLeft: matchesSM ? 0 : "5em",
-              textAlign: matchesSM ? "center" : undefined,
+              marginLeft: matchesSM ? 0 : '5em',
+              textAlign: matchesSM ? 'center' : undefined,
             }}
           >
             <Typography variant="h4">Custom Software Development</Typography>
@@ -145,7 +145,7 @@ export default function Services(props) {
               Save Energy. Save Time. Save Money.
             </Typography>
             <Typography variant="subtitle1">
-              Complete digital solutions, from investigation to{" "}
+              Complete digital solutions, from investigation to{' '}
               <span className={classes.specialText}>celebration</span>
             </Typography>
             <Button
@@ -182,13 +182,13 @@ export default function Services(props) {
           container
           direction="row"
           className={classes.serviceContainer}
-          justify={matchesSM ? "center" : "flex-end"}
-          style={{ marginBottom: "10em" }}
+          justify={matchesSM ? 'center' : 'flex-end'}
+          style={{ marginBottom: '10em' }}
         >
           <Grid
             item
             style={{
-              textAlign: matchesSM ? "center" : undefined,
+              textAlign: matchesSM ? 'center' : undefined,
               // width: matchesSM ? undefined : "15em"
             }}
           >
@@ -220,7 +220,7 @@ export default function Services(props) {
           <Grid
             item
             style={{
-              marginRight: matchesSM ? 0 : "5em",
+              marginRight: matchesSM ? 0 : '5em',
             }}
           >
             <img

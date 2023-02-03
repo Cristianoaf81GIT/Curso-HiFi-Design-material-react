@@ -1,46 +1,46 @@
-import React from "react";
-import Lottie from "react-lottie";
-import { Link } from "react-router-dom";
-import { makeStyles, useTheme, createStyles } from "@material-ui/styles";
-import Grid from "@material-ui/core/Grid";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import Hidden from "@material-ui/core/Hidden";
+import React from 'react';
+import Lottie from 'react-lottie';
+import { Link } from 'react-router-dom';
+import { makeStyles, useTheme, createStyles } from '@material-ui/styles';
+import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import Hidden from '@material-ui/core/Hidden';
 
-import backArrow from "../assets/backArrow.svg";
-import forwardArrow from "../assets/forwardArrow.svg";
-import lighBulb from "../assets/bulb.svg";
-import cash from "../assets/cash.svg";
-import stopwatch from "../assets/stopwatch.svg";
-import documentsAnimation from "../animations/documentsAnimation/data";
-import scaleAnimation from "../animations/scaleAnimation/data.json";
-import roots from "../assets/root.svg";
-import automationAnimation from "../animations/automationAnimation/data.json";
-import uxAnimation from "../animations/uxAnimation/data";
-import CallToAction from "./ui/CallToAction";
+import backArrow from '../assets/backArrow.svg';
+import forwardArrow from '../assets/forwardArrow.svg';
+import lighBulb from '../assets/bulb.svg';
+import cash from '../assets/cash.svg';
+import stopwatch from '../assets/stopwatch.svg';
+import documentsAnimation from '../animations/documentsAnimation/data';
+import scaleAnimation from '../animations/scaleAnimation/data.json';
+import roots from '../assets/root.svg';
+import automationAnimation from '../animations/automationAnimation/data.json';
+import uxAnimation from '../animations/uxAnimation/data';
+import CallToAction from './ui/CallToAction';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
     heading: {
-      maxWidth: "40em",
+      maxWidth: '40em',
     },
     arrowContainer: {
-      marginTop: "0.5em",
+      marginTop: '0.5em',
     },
     rowContainer: {
-      paddingLeft: "5em",
-      paddingRight: "5em",
+      paddingLeft: '5em',
+      paddingRight: '5em',
       // paddingTop: "2em",
       // paddingBottom: "10em",
-      [theme.breakpoints.down("sm")]: {
-        paddingLeft: "1.5em",
-        paddingRight: "1.5em",
+      [theme.breakpoints.down('sm')]: {
+        paddingLeft: '1.5em',
+        paddingRight: '1.5em',
         // padintTop: "1em"
       },
     },
     itemContainer: {
-      maxWidth: "40em",
+      maxWidth: '40em',
     },
   })
 );
@@ -48,16 +48,16 @@ const useStyles = makeStyles((theme) =>
 export default function CustomSoftware(props) {
   const classes = useStyles();
   const theme = useTheme();
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
+  const matchesMD = useMediaQuery(theme.breakpoints.down('md'));
+  const matchesXS = useMediaQuery(theme.breakpoints.down('xs'));
 
   const documentsOptions = {
     loop: true,
     autoplay: false,
     animationData: documentsAnimation,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
+      preserveAspectRatio: 'xMidYMid slice',
     },
   };
 
@@ -66,7 +66,7 @@ export default function CustomSoftware(props) {
     autoplay: false,
     animationData: scaleAnimation,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
+      preserveAspectRatio: 'xMidYMid slice',
     },
   };
 
@@ -75,7 +75,7 @@ export default function CustomSoftware(props) {
     autoplay: false,
     animationData: automationAnimation,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
+      preserveAspectRatio: 'xMidYMid slice',
     },
   };
 
@@ -84,7 +84,7 @@ export default function CustomSoftware(props) {
     autoplay: false,
     animationData: uxAnimation,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
+      preserveAspectRatio: 'xMidYMid slice',
     },
   };
 
@@ -94,20 +94,20 @@ export default function CustomSoftware(props) {
         item
         container
         direction="row"
-        justify={matchesMD ? "center" : undefined}
+        justify={matchesMD ? 'center' : undefined}
         className={classes.rowContainer}
-        style={{ marginTop: matchesXS ? "1em" : "2em" }}
+        style={{ marginTop: matchesXS ? '1em' : '2em' }}
       >
         <Hidden mdDown>
           <Grid
             item
             className={classes.arrowContainer}
-            style={{ marginRight: "1em", marginLeft: "-3.5em" }}
+            style={{ marginRight: '1em', marginLeft: '-3.5em' }}
           >
             <IconButton
               component={Link}
               to="/services"
-              style={{ backgroundColor: "transparent" }}
+              style={{ backgroundColor: 'transparent' }}
               onClick={() => props.setSelectedIndex(0)}
             >
               <img src={backArrow} alt="Back to Services page" />
@@ -118,7 +118,7 @@ export default function CustomSoftware(props) {
         <Grid item container direction="column" className={classes.heading}>
           <Grid item>
             <Typography
-              align={matchesMD ? "center" : undefined}
+              align={matchesMD ? 'center' : undefined}
               variant="body1"
             >
               Custom Software Development
@@ -130,7 +130,7 @@ export default function CustomSoftware(props) {
         <Hidden mdDown>
           <Grid item className={classes.arrowContainer}>
             <IconButton
-              style={{ backgroundColor: "transparent" }}
+              style={{ backgroundColor: 'transparent' }}
               component={Link}
               to="/mobileapps"
               onClick={() => props.setSelectedIndex(2)}
@@ -145,7 +145,7 @@ export default function CustomSoftware(props) {
 
         <Grid item>
           <Typography
-            align={matchesMD ? "center" : undefined}
+            align={matchesMD ? 'center' : undefined}
             variant="body1"
             paragraph
           >
@@ -154,7 +154,7 @@ export default function CustomSoftware(props) {
           </Typography>
 
           <Typography
-            align={matchesMD ? "center" : undefined}
+            align={matchesMD ? 'center' : undefined}
             variant="body1"
             paragraph
           >
@@ -165,7 +165,7 @@ export default function CustomSoftware(props) {
             increased efficiency.
           </Typography>
           <Typography
-            align={matchesMD ? "center" : undefined}
+            align={matchesMD ? 'center' : undefined}
             variant="body1"
             paragraph
           >
@@ -175,7 +175,7 @@ export default function CustomSoftware(props) {
             improving your workflow and reducing costs than generalized options.
           </Typography>
           <Typography
-            align={matchesMD ? "center" : undefined}
+            align={matchesMD ? 'center' : undefined}
             variant="body1"
             paragraph
           >
@@ -200,7 +200,7 @@ export default function CustomSoftware(props) {
         container
         direction="row"
         justify="center"
-        style={{ marginTop: "15em", marginBottom: "20em" }}
+        style={{ marginTop: '15em', marginBottom: '20em' }}
         className={classes.rowContainer}
       >
         <Grid
@@ -209,7 +209,7 @@ export default function CustomSoftware(props) {
           direction="column"
           alignItems="center"
           md
-          style={{ maxWidth: "40em" }}
+          style={{ maxWidth: '40em' }}
         >
           <Grid item>
             <Typography variant="h4">Save Energy</Typography>
@@ -226,9 +226,9 @@ export default function CustomSoftware(props) {
           md
           alignItems="center"
           style={{
-            maxWidth: "40em",
-            marginTop: matchesSM ? "10em" : 0,
-            marginBottom: matchesSM ? "10em" : 0,
+            maxWidth: '40em',
+            marginTop: matchesSM ? '10em' : 0,
+            marginBottom: matchesSM ? '10em' : 0,
           }}
         >
           <Grid item>
@@ -245,7 +245,7 @@ export default function CustomSoftware(props) {
           direction="column"
           md
           alignItems="center"
-          style={{ maxWidth: "40em" }}
+          style={{ maxWidth: '40em' }}
         >
           <Grid item>
             <Typography variant="h4">Save Money</Typography>
@@ -259,8 +259,8 @@ export default function CustomSoftware(props) {
       <Grid
         item
         container
-        alignItems={matchesMD ? "center" : undefined}
-        direction={matchesMD ? "column" : "row"}
+        alignItems={matchesMD ? 'center' : undefined}
+        direction={matchesMD ? 'column' : 'row'}
         justify="space-around"
         className={classes.rowContainer}
       >
@@ -268,13 +268,13 @@ export default function CustomSoftware(props) {
           item
           container
           className={classes.itemContainer}
-          direction={matchesSM ? "column" : "row"}
-          style={{ marginBottom: matchesMD ? "15em" : 0 }}
+          direction={matchesSM ? 'column' : 'row'}
+          style={{ marginBottom: matchesMD ? '15em' : 0 }}
           md
         >
           <Grid item container direction="column" md>
             <Grid item>
-              <Typography variant="h4" align={matchesSM ? "center" : undefined}>
+              <Typography variant="h4" align={matchesSM ? 'center' : undefined}>
                 Digital documents & Data
               </Typography>
             </Grid>
@@ -283,14 +283,14 @@ export default function CustomSoftware(props) {
               <Typography
                 variant="body1"
                 paragraph
-                align={matchesSM ? "center" : undefined}
+                align={matchesSM ? 'center' : undefined}
               >
                 Reduce Errors. Reduce Waste. Reduce Costs.
               </Typography>
               <Typography
                 variant="body1"
                 paragraph
-                align={matchesSM ? "center" : undefined}
+                align={matchesSM ? 'center' : undefined}
               >
                 Billions are spent annually on the purchasing, printing, and
                 distribution of paper. On top of the massive environmental
@@ -299,7 +299,7 @@ export default function CustomSoftware(props) {
               <Typography
                 variant="body1"
                 paragraph
-                align={matchesSM ? "center" : undefined}
+                align={matchesSM ? 'center' : undefined}
               >
                 By utilizing digital forms and documents you can remove these
                 obsolete expenses, accelerate your communication, and help the
@@ -326,7 +326,7 @@ export default function CustomSoftware(props) {
           container
           className={classes.itemContainer}
           md
-          direction={matchesSM ? "column" : "row"}
+          direction={matchesSM ? 'column' : 'row'}
         >
           <Grid item md>
             <Lottie
@@ -341,7 +341,7 @@ export default function CustomSoftware(props) {
 
           <Grid item container direction="column" md>
             <Grid item>
-              <Typography variant="h4" align={matchesSM ? "center" : "right"}>
+              <Typography variant="h4" align={matchesSM ? 'center' : 'right'}>
                 Scale
               </Typography>
             </Grid>
@@ -350,7 +350,7 @@ export default function CustomSoftware(props) {
               <Typography
                 variant="body1"
                 paragraph
-                align={matchesSM ? "center" : "right"}
+                align={matchesSM ? 'center' : 'right'}
               >
                 Whether you’re a large brand, just getting started, or taking
                 off right now, our application architecture ensures pain-free
@@ -365,7 +365,7 @@ export default function CustomSoftware(props) {
         item
         container
         direction="row"
-        style={{ marginTop: "20em", marginBottom: "20em" }}
+        style={{ marginTop: '20em', marginBottom: '20em' }}
         className={classes.rowContainer}
       >
         <Grid item container direction="column" alignItems="center">
@@ -373,8 +373,8 @@ export default function CustomSoftware(props) {
             <img
               src={roots}
               alt="tree roots extending out"
-              height={matchesSM ? "300em" : "450em"}
-              width={matchesSM ? "300em" : "450em"}
+              height={matchesSM ? '300em' : '450em'}
+              width={matchesSM ? '300em' : '450em'}
             />
           </Grid>
         </Grid>
@@ -399,23 +399,23 @@ export default function CustomSoftware(props) {
       <Grid
         item
         container
-        alignItems={matchesMD ? "center" : undefined}
-        direction={matchesMD ? "column" : "row"}
+        alignItems={matchesMD ? 'center' : undefined}
+        direction={matchesMD ? 'column' : 'row'}
         justify="space-around"
-        style={{ marginBottom: "10em" }}
+        style={{ marginBottom: '10em' }}
         className={classes.rowContainer}
       >
         <Grid
           item
           container
           className={classes.itemContainer}
-          direction={matchesSM ? "column" : "row"}
-          style={{ marginBottom: matchesMD ? "15em" : 0 }}
+          direction={matchesSM ? 'column' : 'row'}
+          style={{ marginBottom: matchesMD ? '15em' : 0 }}
           md
         >
           <Grid item container direction="column" md>
             <Grid item>
-              <Typography variant="h4" align={matchesSM ? "center" : undefined}>
+              <Typography variant="h4" align={matchesSM ? 'center' : undefined}>
                 Automation
               </Typography>
             </Grid>
@@ -424,14 +424,14 @@ export default function CustomSoftware(props) {
               <Typography
                 variant="body1"
                 paragraph
-                align={matchesSM ? "center" : undefined}
+                align={matchesSM ? 'center' : undefined}
               >
                 Why waste time when you don’t have to?
               </Typography>
               <Typography
                 variant="body1"
                 paragraph
-                align={matchesSM ? "center" : undefined}
+                align={matchesSM ? 'center' : undefined}
               >
                 We can help you identify processes with time or event based
                 actions which can now easily be automated.
@@ -439,7 +439,7 @@ export default function CustomSoftware(props) {
               <Typography
                 variant="body1"
                 paragraph
-                align={matchesSM ? "center" : undefined}
+                align={matchesSM ? 'center' : undefined}
               >
                 Increasing efficiency increases profits, leaving you more time
                 to focus on your business, not busywork.
@@ -464,7 +464,7 @@ export default function CustomSoftware(props) {
           container
           className={classes.itemContainer}
           md
-          direction={matchesSM ? "column" : "row"}
+          direction={matchesSM ? 'column' : 'row'}
         >
           <Grid item md>
             <Lottie
@@ -479,7 +479,7 @@ export default function CustomSoftware(props) {
 
           <Grid item container direction="column" md>
             <Grid item>
-              <Typography variant="h4" align={matchesSM ? "center" : "right"}>
+              <Typography variant="h4" align={matchesSM ? 'center' : 'right'}>
                 User Experience Design
               </Typography>
             </Grid>
@@ -487,7 +487,7 @@ export default function CustomSoftware(props) {
             <Grid item>
               <Typography
                 variant="body1"
-                align={matchesSM ? "center" : "right"}
+                align={matchesSM ? 'center' : 'right'}
                 paragraph
               >
                 A good design that isn’t usable isn’t a good design.
@@ -495,7 +495,7 @@ export default function CustomSoftware(props) {
 
               <Typography
                 variant="body1"
-                align={matchesSM ? "center" : "right"}
+                align={matchesSM ? 'center' : 'right'}
                 paragraph
               >
                 So why are so many pieces of software complicated, confusing,
@@ -504,7 +504,7 @@ export default function CustomSoftware(props) {
 
               <Typography
                 variant="body1"
-                align={matchesSM ? "center" : "right"}
+                align={matchesSM ? 'center' : 'right'}
                 paragraph
               >
                 By prioritizing users and the real ways they interact with

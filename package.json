@@ -1,6 +1,7 @@
 {
   "name": "arcdevelopment",
   "version": "0.1.0",
+  "node_version": "v14",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.3",
@@ -21,7 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format": "npx prettier --write ."
+    "format": "prettier --write \"src/**/*.{js,jsx}\""
   },
   "eslintConfig": {
     "extends": [
@@ -40,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prettier": "^2.3.2"
   }
 }

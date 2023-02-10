@@ -8,6 +8,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import theme from './ui/theme';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import MobileApps from './MobileApps';
+import Websites from './Websites';
 
 function App() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -70,7 +71,17 @@ function App() {
               />
             )}
           />
-          <Route exact path="/websites" component={() => <div>Websites</div>} />
+          <Route
+            exact
+            path="/websites"
+            render={(props) => (
+              <Websites
+                {...props}
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            )}
+          />
           <Route
             exact
             path="/revolution"

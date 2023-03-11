@@ -231,7 +231,7 @@ export default function Websites(props) {
         container
         direction={matchesSM ? 'column' : 'row'}
         alignItems="center"
-        justify="flex-end"
+        justifyContent="flex-end"
         className={classes.rowContainer}
         style={{ marginTop: '15em', marginBottom: '15em' }}
       >

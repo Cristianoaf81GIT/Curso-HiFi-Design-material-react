@@ -84,5 +84,23 @@ export default createTheme({
       fontWeight: 'bold',
     },
   },
+  overrides: {
+    MuiInputLabel: {
+      root: {
+        color: `${arcBlue}`,
+        fontSize: '1rem'
+      }
+    },
+    MuiInput: {
+      underline: {
+        '&:before': {
+          borderBottom: `2px solid ${arcBlue}`
+        },
+        '&:hover:not($disabled):not($focused):not($error):before': {
+          borderBottom: `2px solid ${arcBlue}`
+        }
+      }
+    }
+  },
   breakpoints: { ...defaultTheme.breakpoints },
 });

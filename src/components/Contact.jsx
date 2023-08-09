@@ -48,6 +48,22 @@ const useStyles = makeStyles(theme => ({
       marginBottom: '2em',
     },
   },
+  message: {
+    border: `2px solid ${theme.palette.common.arcBlue}`,
+    marginTop: '5em',
+    borderRadius: 5,
+  },
+  sendButton: {
+    ...theme.typography.estimate,
+    borderRadius: 50,
+    height: 45,
+    width: 245,
+    fontSize: '1rem',
+    backgroundColor: theme.palette.common.arcOrange,
+    '&:hover': {
+      backgroundColor: theme.palette.secondary.light,
+    }
+  },
 }));
 
 export default function Contact(props) {
@@ -62,7 +78,14 @@ export default function Contact(props) {
 
   return (
     <Grid container direction='row'>
-      <Grid item container direction='column' justifyContent='center' lg={3} md={3}>
+      <Grid 
+        item 
+        container 
+        direction='column' 
+        justifyContent='center'
+        lg={3} 
+        md={3}
+      >
         <Typography 
           variant='h2' 
           style={{lineHeigh: 1}}
@@ -96,7 +119,7 @@ export default function Contact(props) {
           </Typography>
         </Grid>
       </Grid>
-      <Grid item container>
+      <Grid item container style={{maxWidth: "20em"}}>
         <Grid item>
           <TextField 
             label="Name" 
@@ -121,19 +144,21 @@ export default function Contact(props) {
           />
         </Grid>
       </Grid>
-      <Grid item>
+      <Grid item style={{maxWidth: '20em'}}>
         <TextField 
+          InputProps={{ disableUndeline: true }}
           value={message}
           multiline
+          className={classes.message}
           maxRows={10}
           id="message"
           onChange={(event) => { setMessage(event.target.value); } }
         />
       </Grid>
       <Grid item>
-        <Button variant="contained">
+        <Button variant="contained" className={classes.sendButton}>
           Send message
-          <img src={airplane} alt="paper airplane"/>
+          <img src={airplane} alt="paper airplane" style={{marginLeft: '1em'}}/>
         </Button>
       </Grid>
       <Grid item container className={classes.background} lg={9} alignItems='center'>

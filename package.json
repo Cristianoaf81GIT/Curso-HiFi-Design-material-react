@@ -2,6 +2,9 @@
   "name": "arcdevelopment",
   "version": "0.1.0",
   "node_version": "v14",
+  "engines": {
+    "node": "14"
+  },
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.3",

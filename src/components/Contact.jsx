@@ -80,6 +80,38 @@ export default function Contact(props) {
   const [message, setMessage] = useState('');
   const matchesSm = useMediaQuery(theme.breakpoints.down('sm'));
   const matchesMD = useMediaQuery(theme.breakpoints.down('md'));
+  // const [nameHelper, setNameHelper] = useState("");
+  const [emailHelper, setEmailHelper] = useState("");
+  const [phoneHelper, setPhoneHelper] = useState("");
+ // const [messageHelper,setMessageHelper] = useState("");
+  
+  const onChange = event => {
+    let valid; 
+
+    switch(event.target.id) {
+      case 'email':
+        setEmail(event.target.value);
+        valid = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(event.target.value);
+        if(!valid) {
+          setEmailHelper("Invalid email");
+        } else {
+          setEmailHelper("");
+        }
+      break;
+      case 'phone':
+        setPhone(event.target.value);
+        valid = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(event.target.value);
+        if (!valid) {
+          setPhoneHelper("Invalid Phone number");
+        } else {
+          setPhoneHelper("");
+        }
+      break;
+
+      default:
+      break;
+    }
+  }
 
   return (
     <Grid container direction='row'>
@@ -145,17 +177,21 @@ export default function Contact(props) {
                 label="Email"
                 id="email"
                 value={email}
+                error={emailHelper.length !== 0}
+                helperText={emailHelper.length > 0 && emailHelper}
                 fullWidth
-                onChange={(event) => { setEmail(event.target.value); }}
+                onChange={onChange}
               />
             </Grid>
             <Grid item style={{marginBottom: "0.5em"}}>
               <TextField
                 label="Phone"
                 id="phone"
+                error={phoneHelper.length !== 0}
+                helperText={phoneHelper.length > 0 && phoneHelper}
                 fullWidth
                 value={phone}
-                onChange={(event) => { setPhone(event.target.value); }}
+                onChange={onChange}
               />
             </Grid>
           </Grid>

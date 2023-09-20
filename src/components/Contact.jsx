@@ -149,7 +149,9 @@ export default function Contact(props) {
             </Grid>
             <Grid item>
               <Typography variant='body1' style={{ color: theme.palette.common.arcBlue, fontSize: '1rem' }}>
-                (555) 555-5555
+                <a href="tel:55555555555" style={{textDecoration: 'none', color: 'inherit'}}>
+                  (555) 555-5555
+                </a>
               </Typography>
             </Grid>
           </Grid>
@@ -159,7 +161,9 @@ export default function Contact(props) {
             </Grid>
             <Grid item>
               <Typography variant='body1' style={{ color: theme.palette.common.arcBlue, fontSize: '1rem' }}>
+                <a href="mailto:developer@email.com" style={{textDecoration: 'none', color: 'inherit'}}>
                 developer@email.com
+                </a>
               </Typography>
             </Grid>
           </Grid>
@@ -208,7 +212,17 @@ export default function Contact(props) {
             />
           </Grid>
           <Grid item container justifyContent="center" style={{marginTop: '2em'}}>
-            <Button variant="contained" className={classes.sendButton}>
+            <Button 
+              variant="contained" 
+              className={classes.sendButton}
+              disabled={
+                name.length === 0 || 
+                message.length === 0 || 
+                email.length === 0 || 
+                phone.length === 0 || 
+                phoneHelper.length !== 0
+              }
+            >
               Send message
               <img src={airplane} alt="paper airplane" style={{ marginLeft: '1em' }} />
             </Button>

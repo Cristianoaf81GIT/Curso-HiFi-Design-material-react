@@ -12,6 +12,8 @@ import emailIcon from '../assets/email.svg';
 import { TextField } from '@material-ui/core';
 import airplane from '../assets/send.svg';
 import ButtonArrow from '../components/ui/ButtonArrow';
+import Dialog from '@material-ui/core/Dialog';
+import DialogContent from '@material-ui/core/DialogContent';
 
 
 const useStyles = makeStyles(theme => ({
@@ -84,7 +86,8 @@ export default function Contact(props) {
   const [emailHelper, setEmailHelper] = useState("");
   const [phoneHelper, setPhoneHelper] = useState("");
  // const [messageHelper,setMessageHelper] = useState("");
-  
+  const [open, setOpen] = useState(false);
+
   const onChange = event => {
     let valid; 
 
@@ -222,6 +225,7 @@ export default function Contact(props) {
                 phone.length === 0 || 
                 phoneHelper.length !== 0
               }
+              onClick={() => setOpen(true)}
             >
               Send message
               <img src={airplane} alt="paper airplane" style={{ marginLeft: '1em' }} />
@@ -229,6 +233,82 @@ export default function Contact(props) {
           </Grid>
         </Grid>
       </Grid>
+      
+      <Dialog open={open} onClose={() => setOpen(false)}>
+        <DialogContent>
+          <Grid container direction="column">
+            <Grid item>
+              <Typography variant="h4" gutterBottom>
+                Confirm Message
+              </Typography>
+            </Grid>                 
+            <Grid item style={{marginBottom: "0.5em"}}>
+              <TextField
+                label="Name"
+                id="name" value={name}
+                fullWidth
+                onChange={(event) => { setName(event.target.value); }}
+              />
+            </Grid>
+            <Grid item style={{marginBottom: "0.5em"}}>
+              <TextField
+                label="Email"
+                id="email"
+                value={email}
+                error={emailHelper.length !== 0}
+                helperText={emailHelper.length > 0 && emailHelper}
+                fullWidth
+                onChange={onChange}
+              />
+            </Grid>
+            <Grid item style={{marginBottom: "0.5em"}}>
+              <TextField
+                label="Phone"
+                id="phone"
+                error={phoneHelper.length !== 0}
+                helperText={phoneHelper.length > 0 && phoneHelper}
+                fullWidth
+                value={phone}
+                onChange={onChange}
+              />
+            </Grid>
+          </Grid>
+          <Grid item style={{ maxWidth: '20em' }}>
+            <TextField
+              InputProps={{ disableUndeline: true }}
+              value={message}
+              multiline
+              fullWidth
+              className={classes.message}
+              maxRows={10}
+              id="message"
+              onChange={(event) => { setMessage(event.target.value); }}
+            />
+          </Grid>
+          <Grid item container>
+            <Grid item>
+              <Button color='primary' onClick={() => setOpen(false)}>Close</Button>
+            </Grid>
+            <Grid item>                
+              <Button 
+                variant="contained" 
+                className={classes.sendButton}
+                disabled={
+                  name.length === 0 || 
+                  message.length === 0 || 
+                  email.length === 0 || 
+                  phone.length === 0 || 
+                  phoneHelper.length !== 0
+                }
+                onClick={() => setOpen(true)}
+              >
+                Send message
+                <img src={airplane} alt="paper airplane" style={{ marginLeft: '1em' }} />
+              </Button>
+            </Grid>
+          </Grid>
+        </DialogContent>
+      </Dialog>
 
       <Grid 
         item 

@@ -68,6 +68,10 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.common.arcOrange,
     '&:hover': {
       backgroundColor: theme.palette.secondary.light,
+    },
+    [theme.breakpoints.down('sm')]: {
+      height: 40,
+      width: 225
     }
   },
 }));
@@ -217,13 +221,13 @@ export default function Contact(props) {
             <Button 
               variant="contained" 
               className={classes.sendButton}
-              disabled={
-                name.length === 0 || 
-                message.length === 0 || 
-                email.length === 0 || 
-                phone.length === 0 || 
-                phoneHelper.length !== 0
-              }
+//              disabled={
+//                name.length === 0 || 
+//                message.length === 0 || 
+//                email.length === 0 || 
+//                phone.length === 0 || 
+//                phoneHelper.length !== 0
+//              }
               onClick={() => setOpen(true)}
             >
               Send message
@@ -234,8 +238,10 @@ export default function Contact(props) {
       </Grid>
       
       <Dialog 
-        open={open} 
-        onClose={() => setOpen(false)} 
+        open={open}
+        style={{zIndex: 1302}}
+        onClose={() => setOpen(false)}
+        fullScreen={matchesXS}
         PaperProps={{ 
           style: { 
             paddingTop: matchesXS ? "1em" : "5em",
@@ -283,7 +289,7 @@ export default function Contact(props) {
               />
             </Grid>
           </Grid>
-          <Grid item style={{ maxWidth: '20em' }}>
+          <Grid item style={{ maxWidth: matchesXS ? '100%':'20em' }}>
             <TextField
               InputProps={{ disableUndeline: true }}
               value={message}
@@ -295,7 +301,13 @@ export default function Contact(props) {
               onChange={(event) => { setMessage(event.target.value); }}
             />
           </Grid>
-          <Grid item container style={{marginTop: "2em"}} alignItems='center'>
+          <Grid 
+            item 
+            container 
+            style={{marginTop: "2em"}} 
+            alignItems='center'
+            direction={matchesSm ? 'column': 'row'}
+          >
             <Grid item>
               <Button 
                 style={{fontWeight: 300}}

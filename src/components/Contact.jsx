@@ -119,6 +119,10 @@ export default function Contact(props) {
     }
   }
 
+  const onConfirm = () => {
+    setOpen(true); 
+  };
+
   return (
     <Grid container direction='row'>
       <Grid
@@ -228,7 +232,8 @@ export default function Contact(props) {
 //                phone.length === 0 || 
 //                phoneHelper.length !== 0
 //              }
-              onClick={() => setOpen(true)}
+              // onClick={() => setOpen(true)}
+              onClick={onConfirm}
             >
               Send message
               <img src={airplane} alt="paper airplane" style={{ marginLeft: '1em' }} />

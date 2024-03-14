@@ -132,7 +132,8 @@ export default function Contact(props) {
 
   const onConfirm = () => {
     setLoading(true);
-    setOpen(true);
+    Open(true);
+    // continue in 10 minutes 
     const fakeRequest = () =>
       new Promise((resolve, _reject) => {
         setTimeout(() => {
